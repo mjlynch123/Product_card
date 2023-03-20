@@ -12,6 +12,7 @@ var totalDiscount = document.getElementById("discount");
 var plus = document.getElementById("plus");
 var minus = document.getElementById("minus");
 var total = document.getElementById("total");
+var salesTax = document.getElementById("tax");
 
 var localCard = description.textContent;
 
@@ -25,30 +26,35 @@ var priceFromStorage = localStorage.getItem("price");
 
 function getPrice() {
   var parsedPrice = parseFloat(priceFromStorage);
-  var updatedPrice = parsedPrice * inputVal.value;
+  var tax = (parsedPrice * inputVal.value)  * .0509;
+  var updatedPrice = (parsedPrice * inputVal.value) + tax;
   var val = inputVal.value;
   var discount;
 
   totalDiscount.textContent =  " -"
+  salesTax.textContent = "$" + tax.toFixed(2);
 
   if (val >= 100) {
     discount = updatedPrice * .50;
-    totalDiscount.textContent =  discount.toFixed(2);
+    totalDiscount.textContent =  "$" + discount.toFixed(2);
     
     return (updatedPrice - discount).toFixed(2);
   } else if (val >= 50) {
     discount = updatedPrice * .40;
-    totalDiscount.textContent = discount.toFixed(2);
+    totalDiscount.textContent = "$" + discount.toFixed(2);
+    salesTax.textContent = "$" + tax.toFixed(2);
 
     return (updatedPrice - discount).toFixed(2);
   } else if (val > 5) {
     discount = updatedPrice * .30;
-    totalDiscount.textContent = discount.toFixed(2);
+    totalDiscount.textContent = "$" + discount.toFixed(2);
+    salesTax.textContent = "$" + tax.toFixed(2);
 
     return (updatedPrice - discount).toFixed(2);
   } else if (inputVal.value > 3) {
     discount = updatedPrice * .20;
-    totalDiscount.textContent = discount.toFixed(2);
+    totalDiscount.textContent = "$" + discount.toFixed(2);
+    salesTax.textContent = "$" + tax.toFixed(2);
 
     return (updatedPrice - discount).toFixed(2);
   }
