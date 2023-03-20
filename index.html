@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/5e86550e56.js" crossorigin="anonymous"></script>
     <title>Product Card</title>
 </head>
 <body>
@@ -29,17 +30,27 @@
 
     <section id="cart-area" style="visibility: hidden;">
         <div id="product-line">
-            <div id="smaller-img">
-                
-            </div>
-            <div id="item">
+            <div class="product">
+                <div id="img">
+                    <img src="https://images.unsplash.com/photo-1615615228002-890bb61cac6e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80">
+                </div>
+                <div id="itemArea">
+                    <div id="item"></div>
+                    <div class="number">
+                        <i class="fa-solid fa-minus" id="minus"></i>
+                        <input type="number" min="1" max="100" value="1" id="number"/>
+                        <i class="fa-solid fa-plus" id="plus"></i>
+                    </div>
+                </div>
 
             </div>
             <div id="price">
 
             </div>
             <div id="amount">
-                <input type="number" />
+                <div>Base Price: <span id="pricing"></span></div>
+                <div>You Save: <span id="discount"></span></div>
+                <div>Total Price: <span id="total"></span></div>
             </div>
         </div>
     </section>
